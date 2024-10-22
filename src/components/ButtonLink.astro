@@ -1,0 +1,21 @@
+---
+import { buttonVariants } from "@/components/ui/button.tsx";
+import { type VariantProps } from "class-variance-authority";
+
+interface Props
+  extends astroHTML.JSX.AnchorHTMLAttributes,
+    Omit<VariantProps<typeof buttonVariants>, "className"> {}
+
+const { variant, size, class: className, ...props } = Astro.props;
+---
+
+<a
+  {...props}
+  class={buttonVariants({
+    variant,
+    size,
+    className,
+  })}
+>
+  <slot />
+</a>

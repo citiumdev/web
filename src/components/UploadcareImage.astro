@@ -1,0 +1,30 @@
+---
+interface Props {
+  uuid: string;
+  alt: string;
+  sizes?: string;
+}
+
+const { uuid, alt, sizes } = Astro.props as Props;
+
+const defaultWidths = [640, 750, 828, 1080, 1200, 1920, 2048, 3840];
+const thumbnailURL = `https://ucarecdn.com/${uuid}/-/resize/100x/-/blur/50/-/quality/lightest/`;
+const getURL = (w: number) => `https://ucarecdn.com/${uuid}/-/resize/${w}x/`;
+---
+
+<div class="relative w-full h-full">
+  <img
+    src={thumbnailURL}
+    alt=""
+    class="absolute w-full h-full top-0 bottom-0 right-0 left-0 text-transparent"
+  />
+  <img
+    src={thumbnailURL}
+    alt={alt}
+    loading="lazy"
+    decoding="async"
+    srcset={defaultWidths.map((w) => `${getURL(w)} ${w}w`).join(", \n")}
+    sizes={sizes}
+    class="absolute w-full h-full top-0 bottom-0 right-0 left-0 text-transparent object-cover"
+  />
+</div>

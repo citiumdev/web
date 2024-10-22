@@ -1,0 +1,54 @@
+---
+import UploadcareImage from "@/components/UploadcareImage.astro";
+import ButtonLink from "@/components/ButtonLink.astro";
+---
+
+<header id="home" class="flex min-h-screen overflow-hidden">
+  <div class="pattern flex h-full w-full items-center pb-56 pt-40 md:pt-52">
+    <div class="container mx-auto px-4">
+      <div class="mx-auto flex w-full flex-col items-center">
+        <h1 class="mb-4 text-center font-serif text-4xl lg:text-5xl">
+          Desarrollo web especializado
+        </h1>
+        <p
+          class="mb-8 max-w-lg text-center leading-tight text-zinc-600 md:text-xl lg:text-lg"
+        >
+          Transformamos tus ideas en realidades digitales. Tu imaginas, nosotros
+          lo creamos.
+        </p>
+        <div
+          class="flex w-full flex-col items-center justify-center gap-2 sm:flex-row"
+        >
+          <ButtonLink href="#contact" size="sm" class="w-full sm:w-auto">
+            Empieza tu proyecto
+          </ButtonLink>
+          <ButtonLink
+            variant="outline"
+            href="#projects"
+            size="sm"
+            class="w-full sm:w-auto"
+          >
+            Trabajos anteriores
+          </ButtonLink>
+        </div>
+      </div>
+      <div
+        class="mx-auto mt-16 flex max-w-6xl items-center justify-center md:mt-24"
+      >
+        <div
+          class="aspect-video w-full rounded-[8px] bg-zinc-300 p-[4px] shadow-md md:rounded-[17px]"
+        >
+          <div
+            class="relative h-full w-full overflow-hidden rounded-[4px] md:rounded-[12px]"
+          >
+            <UploadcareImage
+              uuid="ae834506-e052-4fc0-9e0e-2818e1a09dd9"
+              alt="website mockup"
+              sizes="(max-width: 1525px) 100vw, (max-width:  2288px) 75vw, 50vw"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,61 @@
+---
+import { Card } from "@/components/ui/card.tsx";
+import { ExternalLink } from "lucide-react";
+import UploadcareImage from "@/components/UploadcareImage.astro";
+
+const projects = [
+  {
+    title: "CUDI",
+    image: "1853ad79-fb7d-4095-858c-f82109449ed7",
+    url: "https://www.cudicoders.dev",
+    description:
+      "CUDI es una plataforma innovadora que conecta a programadores universitarios apasionados por la tecnología y la innovación. A través de eventos, talleres y hackathons, ofrece oportunidades únicas para el desarrollo profesional y personal.",
+  },
+];
+---
+
+<section id="projects" class="pb-56 pt-8">
+  <div class="container mx-auto flex max-w-6xl flex-col items-center px-4">
+    <div
+      class="mt-20 flex max-w-xl flex-col items-center justify-center gap-4 text-center"
+    >
+      <h1 class="font-serif text-2xl sm:text-3xl md:text-4xl">
+        Nuestros Proyectos
+      </h1>
+      <p class="leading-tight text-zinc-500 md:text-xl">
+        Algunos de nuestros trabajos más destacados
+      </p>
+    </div>
+    <div class="mt-8 flex w-full flex-col gap-4">
+      {
+        projects.map((project) => (
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group"
+          >
+            <Card className="flex flex-wrap overflow-hidden rounded-xl border border-zinc-300 bg-zinc-50 shadow-md group-hover:border-blue-200 group-hover:bg-blue-50/20">
+              <div class="w-full p-4 md:w-1/2">
+                <h2 class="mb-2 flex items-center font-serif text-2xl font-medium group-hover:text-blue-600">
+                  {project.title}
+                  <ExternalLink className="ml-2 transition-all group-hover:-translate-y-1" />
+                </h2>
+                <p class="text-zinc-500">{project.description}</p>
+              </div>
+              <div class="aspect-video w-full p-4 md:w-1/2">
+                <div class="h-full w-full overflow-hidden rounded-xl">
+                  <UploadcareImage
+                    uuid={project.image}
+                    alt={project.title}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+              </div>
+            </Card>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

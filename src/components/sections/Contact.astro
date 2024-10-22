@@ -1,0 +1,25 @@
+---
+import ContactForm from "@/components/ContactForm.tsx";
+---
+
+<section id="contact" class="py-32">
+  <div class="container mx-auto flex max-w-6xl flex-wrap px-4">
+    <div class="mb-12 flex w-full flex-col p-0 md:w-1/2 md:pr-4">
+      <h1
+        class="text-center font-serif text-2xl leading-tight md:text-left md:text-3xl lg:text-5xl"
+      >
+        ¡Cuéntanos tu idea!
+      </h1>
+      <p
+        class="mt-4 text-center leading-tight text-zinc-600 md:text-left md:text-lg lg:text-lg"
+      >
+        Ya sea que necesites un rediseño completo de tu sitio web, renovarlo, o
+        cualquier solución digital, estamos aquí para ayudarte a convertir tu
+        visión en realidad.
+      </p>
+    </div>
+    <div class="flex w-full justify-center md:w-1/2">
+      <ContactForm client:load />
+    </div>
+  </div>
+</section>
